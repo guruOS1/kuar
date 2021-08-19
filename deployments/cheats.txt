@@ -8,3 +8,13 @@ kubectl get replicasets --selector=run=kuard-dep
 kubectl scale deployments kuard-dep --replicas=3
 kubectl get deployments kuard-dep  -o yaml
 kubectl replace -f kuard-deployment.yaml --save-config
+kubectl rollout status deployments kuard-dep
+kubectl get replicasets -o wide
+kubectl rollout pause deployments kuard-dep
+kubectl rollout resume deployments kuard-dep
+kubectl rollout history deployment kuard-dep
+kubectl rollout history deployment kuard-dep --revision=1
+kubectl rollout undo deployments kuard-dep
+kubectl delete deployment kuard-dep
+kubectl delete -f kuard-deployment-export.yaml
+kubectl delete -f kuard-deployment-export.yaml --cascade=false
