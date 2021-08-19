@@ -3,4 +3,7 @@ kubectl get pods
 kubectl describe pods kuard
 kubectl delete pods/kuard
 kubectl port-forward kuard 8080:8080
+kubectl port-forward --address 0.0.0.0 kuard 8080:8080
 kubectl logs kuard
+kubectl exec kuard -- date
+kubectl exec -it kuard -- ash
