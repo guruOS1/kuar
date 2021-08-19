@@ -1,0 +1,6 @@
+kubectl describe rs kuard-replicas
+kubectl scale replicasets kuard-replicas --replicas=4
+kubectl autoscale rs kuard --min=2 --max=5 --cpu-percent=80
+NAME             REFERENCE                   TARGETS         MINPODS   MAXPODS   REPLICAS   AGE
+kuard-replicas   ReplicaSet/kuard-replicas   <unknown>/80%   2         5         2          31s
+kubectl delete rs kuard-replicas
