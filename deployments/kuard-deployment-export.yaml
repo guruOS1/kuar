@@ -19,11 +19,13 @@ spec:
     type: RollingUpdate
   template:
     metadata:
+      annotations:
+        kubernetes.io/change-cause: "Update to green kuard"
       labels:
         run: kuard-dep
     spec:
       containers:
-      - image: gcr.io/kuar-demo/kuard-amd64:blue
+      - image: gcr.io/kuar-demo/kuard-amd64:green
         imagePullPolicy: IfNotPresent
         name: kuard
       dnsPolicy: ClusterFirst
