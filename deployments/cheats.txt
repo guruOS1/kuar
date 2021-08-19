@@ -1,0 +1,10 @@
+kubectl create -f kuard-deployment.yaml
+kubectl get deployments --show-labels
+kubectl delete deployments --all
+kubectl api-resources | grep deployment
+kubectl get deployments kuard-dep
+kubectl get deployments kuard-dep -o jsonpath --template {.spec.selector.matchLabels}
+kubectl get replicasets --selector=run=kuard-dep
+kubectl scale deployments kuard-dep --replicas=3
+kubectl get deployments kuard-dep  -o yaml
+kubectl replace -f kuard-deployment.yaml --save-config
